@@ -29,4 +29,12 @@ class UtilsController {
         return $data;
     }
 
+    public function getTrajetRentable () {
+        $db = $this->app->db();
+        $chaList = new Utils($db);
+        $data = $chaList->getTrajetRentable();
+
+        return $data;
+    }
+
 }

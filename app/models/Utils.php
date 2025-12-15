@@ -22,4 +22,11 @@ class Utils { // changed class name
         return $produits;
     }
 
+    public function getTrajetRentable () {   
+        $stmt = $this->db->prepare("SELECT * FROM vue_trajets_rentables");
+        $stmt->execute();
+        $produits = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $produits;
+    }
+
 }

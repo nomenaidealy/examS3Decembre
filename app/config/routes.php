@@ -42,6 +42,14 @@ $router->group('', function(Router $router) use ($app) {
 			$app->render('beneficeJour', ['data' => $benefice]);
 		});
 	});
+	
+	$router->group('/trajet', function() use ($router, $app) {
+		$router->get('/rentable', function() use ($app) {
+			$UtilsController = new UtilsController($app);
+			$trajets = $UtilsController->getTrajetRentable();
+			$app->render('trajetRentable', ['data' => $trajets]);
+		});
+	});
 
 
 	$router->group('/api', function() use ($router) {
