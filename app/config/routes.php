@@ -2,6 +2,7 @@
 
 use app\controllers\ApiExampleController;
 use app\controllers\ChauffeurListController;
+use app\controllers\UtilsController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
@@ -27,6 +28,15 @@ $router->group('', function(Router $router) use ($app) {
 	$router->get('/hello-world/@name', function($name) {
 		echo '<h1>Hello world! Oh hey '.$name.'!</h1>';
 	});
+
+	$router->group('/benefice', function() use ($router, $app) {
+		$router->get('/vehicule', function() use ($app) {
+			$UtilsController = new UtilsController($app);
+			$benefice = $UtilsController->getBeneficeParVehicule();
+			$app->render('benefice', ['data' => $benefice]);
+		});
+	});
+
 
 	$router->group('/api', function() use ($router) {
 		$router->get('/users', [ ApiExampleController::class, 'getUsers' ]);
