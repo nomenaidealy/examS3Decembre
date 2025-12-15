@@ -30,8 +30,8 @@
         </tr>
  
     </table>
-    <a href="benefice.php">voir Total montant bénéfice par véhicule</a>
-    <a href="beneficeJour.php"> voir Total montant bénéfice par jour</a>
-    <a href="trajetRentable.php">voir les trajets les plus rentables par jour</a>
+    <a href="benefice/vehicule">voir Total montant bénéfice par véhicule</a>
+    <a href="benefice/jour"> voir Total montant bénéfice par jour</a>
+    <a href="trajet/rentable">voir les trajets les plus rentables par jour</a>
 </body>
 </html>
