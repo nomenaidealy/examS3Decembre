@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1></h1>
     <table border = "1">
         <tr>
             <th>date_jour</th>
