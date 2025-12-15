@@ -24,7 +24,7 @@
       <?php foreach($data as $row): ?>
       <tr>
         <td><?php echo htmlspecialchars($row['date_jour']); ?></td>
-        <td><?php echo htmlspecialchars($row['benefice_total_jour']); ?></td>
+        <td><?php echo htmlspecialchars($row['benefice_total']); ?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>
