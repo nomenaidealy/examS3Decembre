@@ -30,6 +30,7 @@
       <?php endforeach; ?>
     </tbody>
   </table>
+  <a href="/">retour</a>
 </div>
 </body>
 </html>
