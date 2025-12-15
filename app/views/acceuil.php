@@ -6,14 +6,13 @@
 <title>Gestion Véhicules</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-</style>
+<link rel="stylesheet" href="/acceuil.css">
 </head>
 <body>
 <div class="container-main">
   <h1>Liste par jour des véhicules et son chauffeur correspondant</h1>
   
-  <table>
+  <table border ="1">
     <thead>
       <tr>
         <th>date_jour</th>
