@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="/assets/acceuil.css">
 </head>
 <body>
+  <?php include 'header.php'; ?>
+  
 <div class="container-main">
   <h1>Liste par jour des véhicules et son chauffeur correspondant</h1>
   
@@ -37,11 +39,9 @@
     </tbody>
   </table>
   
-  <div class="links-section">
-    <a href="benefice/vehicule">voir Total montant bénéfice par véhicule</a>
-    <a href="benefice/jour">voir Total montant bénéfice par jour</a>
-    <a href="trajet/rentable">voir les trajets les plus rentables par jour</a>
-  </div>
+
+  
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

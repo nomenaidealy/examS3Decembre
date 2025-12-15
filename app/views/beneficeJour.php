@@ -9,7 +9,11 @@
 <link rel="stylesheet" href="/assets/beneficeJour.css">
 
 </head>
+
 <body>
+
+<?php include 'header.php'; ?>
+
 <h1>Total montant bénéfice par jour</h1>
 
 <div class="container-main">
@@ -31,5 +35,7 @@
   </table>
    <a href="/">retour</a>
 </div>
+
+<?php include 'footer.php'; ?>
 </body>
 </html>
