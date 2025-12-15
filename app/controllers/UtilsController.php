@@ -21,4 +21,12 @@ class UtilsController {
         return $data;
     }
 
+    public function getBeneficeParJour () {
+        $db = $this->app->db();
+        $chaList = new Utils($db);
+        $data = $chaList->getBeneficeParJour();
+
+        return $data;
+    }
+
 }

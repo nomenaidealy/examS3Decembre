@@ -35,6 +35,12 @@ $router->group('', function(Router $router) use ($app) {
 			$benefice = $UtilsController->getBeneficeParVehicule();
 			$app->render('benefice', ['data' => $benefice]);
 		});
+
+		$router->get('/jour', function() use ($app) {
+			$UtilsController = new UtilsController($app);
+			$benefice = $UtilsController->getBeneficeParJour();
+			$app->render('beneficeJour', ['data' => $benefice]);
+		});
 	});
 
 
