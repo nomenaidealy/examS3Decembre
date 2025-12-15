@@ -41,3 +41,10 @@ CREATE OR REPLACE TABLE course (
     FOREIGN KEY (idVehicule) REFERENCES vehicules(id),
     FOREIGN KEY (idTypeTrajet) REFERENCES type_trajet(id
 );
+
+CREATE TABLE vehicule_panne (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idVehicule INT,
+    dateDebut DATE NOT NULL,
+    dateFin DATE
+);
