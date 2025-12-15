@@ -1,0 +1,97 @@
+[] Création de la base :
+    - vehicules
+        - id
+        - numéro d'immatriculation
+    - chauffeurs
+        - id
+        - nom
+    - voitures actif
+        - id
+        - vehicule
+        - chauffeur
+        - date
+    - type trajet :
+        - id
+        - description
+    - course
+        - id
+        - chauffeur
+        - vehicule
+        - point de départ
+        - point d'arrivé
+        - date de début (date-time)
+        - date de fin (date-time)
+        - montant recette
+        - montant carburant
+        - distance (km)
+        - type du trajet
+    
+
+[] Liste par jour des vehicules et son chauffeur correspondant :
+    base :
+        - voiture actif
+        - course
+        - chauffeur
+        - vehicule
+    vue :
+        - Acceuil.php
+            tableau de vehicule - chaufeur - montant recette - montant carburant - kilometre effectué
+    integation php :
+        modele :
+            Vehicule 
+            Chauffeur
+            Course
+            Voiture actif
+        Controller :
+            TrajetController
+    fonction :
+        - getAllVoictureActif
+            fonction qui récupère sous forme de tableau tous les éléments dans la tablea voiture actif
+        - calculeRecetteParJour
+            fonction qui calclule la somme de tous les montants recette en fonction du jour, de la voiture et du chauffeur
+        - calculeCarburantParJour
+            fonction qui calcule la somme de tous les montants carburant en fonction du jour, de la voiture et du chauffeur
+        - calculeKilometreEffectueParJour
+            fonction qui calcule la somme de tous les kilometres effectué en fonction du jour, de la voiture et du chauffeur
+
+[] Total montant bénéfice par vehicule :
+    base :
+        - course
+    vue :
+        - BeneficeVehicule.php
+    integration php :
+        modele :
+            course
+        controller :
+            CountController
+    fonction :
+        - countBeneficeParVehicule 
+            fonction qui  retourne la différence entre la somme des montants recette et montant carburant en fonction du vehicule
+
+[] Total montant bénéfice par jour
+    base :
+        - course
+    vue :
+        - BeneficeJour.php
+    integration php :
+        modele :
+            course
+        controller :
+            CountController
+    fonction :
+        - countBeneficeParJour
+            fonction qui  retourne la différence entre la somme des montants recette et montant carburant en fonction du jour
+
+[] Trajet les plus rentables 
+    base :
+        - course
+    vue :
+        - TrajetRentable.php
+    integration php :
+        modele :
+            course
+        controller :
+            courseController
+    fonction :
+        - getTrajetLesPlusRentable
+            fonction qui va retourner sous forme de tableau les trajets qui avec le plus grand bénéfice = recette - carburant
