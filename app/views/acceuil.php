@@ -1,37 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestion Véhicules</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #003d82;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: 700;
+  font-size: 2em;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+th {
+  padding: 18px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+td {
+  padding: 15px 18px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 0.95em;
+}
+
+tbody tr {
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f0f0ff;
+  box-shadow: inset 0 0 10px rgba(102, 126, 234, 0.1);
+  transform: scale(1.01);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even):hover {
+  background-color: #e8e8ff;
+}
+
+.links-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+
+a:nth-child(1) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+a:nth-child(1):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+a:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+a:nth-child(2):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+}
+
+a:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+a:nth-child(3):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container-main {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+  }
+  
+  th, td {
+    padding: 10px;
+    font-size: 0.85em;
+  }
+  
+  .links-section {
+    flex-direction: column;
+  }
+  
+  a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
-    <h1>Liste par jour des véhicules et son chauffeur correspondant</h1>
-    <table border = "1">
-        <tr>
-            <th>date_jour</th>
-            <th>vehicule</th>
-            <th>chauffeur</th>
-            <th>km_effectues</th>
-            <th>recette</th>
-            <th>carburant</th>
-        </tr>
-        <tr>
-            <?php foreach($data as $row): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['date_jour']); ?></td>
-                    <td><?php echo htmlspecialchars($row['vehicule']); ?></td>
-                    <td><?php echo htmlspecialchars($row['chauffeur']); ?></td>
-                    <td><?php echo htmlspecialchars($row['km_effectues']); ?></td>
-                    <td><?php echo htmlspecialchars($row['recette']); ?></td>
-                    <td><?php echo htmlspecialchars($row['carburant']); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tr>
- 
-    </table>
+<div class="container-main">
+  <h1>Liste par jour des véhicules et son chauffeur correspondant</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>date_jour</th>
+        <th>vehicule</th>
+        <th>chauffeur</th>
+        <th>km_effectues</th>
+        <th>recette</th>
+        <th>carburant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach($data as $row): ?>
+      <tr>
+        <td><?php echo htmlspecialchars($row['date_jour']); ?></td>
+        <td><?php echo htmlspecialchars($row['vehicule']); ?></td>
+        <td><?php echo htmlspecialchars($row['chauffeur']); ?></td>
+        <td><?php echo htmlspecialchars($row['km_effectues']); ?></td>
+        <td><?php echo htmlspecialchars($row['recette']); ?></td>
+        <td><?php echo htmlspecialchars($row['carburant']); ?></td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  
+  <div class="links-section">
     <a href="benefice.php">voir Total montant bénéfice par véhicule</a>
-    <a href="beneficeJour.php"> voir Total montant bénéfice par jour</a>
+    <a href="beneficeJour.php">voir Total montant bénéfice par jour</a>
     <a href="trajetRentable.php">voir les trajets les plus rentables par jour</a>
+  </div>
+</div>
 </body>
 </html>
