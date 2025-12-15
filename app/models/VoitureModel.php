@@ -18,19 +18,22 @@ class VoitureModel {
     }
 
     public function getAvailableCars($date) {
+        // date attendu en 'YYYY-MM-DD'
         $sql = "
             SELECT v.id, v.numero_immatriculation
             FROM vehicules v
-            WHERE v.id NOT IN (
-                SELECT vp.idVehicule
+            WHERE NOT EXISTS (
+                SELECT 1
                 FROM vehicule_panne vp
-                WHERE vp.dateDebut <= :date
+                WHERE vp.idVehicule = v.id
+                  AND vp.dateDebut <= :date
                   AND (vp.dateFin IS NULL OR vp.dateFin >= :date)
             )
         ";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':date', $date);
+        // binder en tant que string; bindValue évite réutilisation de param nommé problématique
+        $stmt->bindValue(':date', $date, \PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);

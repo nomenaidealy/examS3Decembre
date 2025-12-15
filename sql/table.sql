@@ -48,3 +48,12 @@ CREATE TABLE vehicule_panne (
     dateDebut DATE NOT NULL,
     dateFin DATE
 );
+
+-- ...existing code...
+INSERT INTO vehicule_panne (idVehicule, dateDebut, dateFin) VALUES
+(1, '2025-12-10', '2025-12-10'),
+(2, '2025-12-11', '2025-12-13'),
+(3, '2025-12-14', NULL),
+(4, '2025-12-05', '2025-12-06');
+COMMIT;
+-- ...existing code...
