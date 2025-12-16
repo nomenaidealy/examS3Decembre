@@ -1,159 +1,309 @@
+/* ========================================
+   ACCUEIL / MAIN CONTENT STYLES
+   ======================================== */
+
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #f39c12;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --warning: #ff9f43;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --text: #34495e;
+    --border: #bdc3c7;
+    --secondary-color: #3d9b7d;
+    --success-color: #28c76f;
+}
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #003d82;
-  min-height: 100vh;
-  padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: #f8f9fa;
 }
 
+/* Main Container */
 .container-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  padding: 40px;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
-h1 {
-  color: white;
-  text-align: center;
-  margin-bottom: 35px;
-  font-weight: 700;
-  font-size: 2em;
-  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  padding-bottom: 20px;
+/* Page Title */
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
+.page-title i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    animation: fadeInScale 0.6s ease-out;
 }
 
-thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-th {
-  padding: 18px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.95em;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: none;
+/* Table Card Container */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease-out;
 }
 
-td {
-  padding: 15px 18px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #555;
-  font-size: 0.95em;
+.table-card:hover {
+    box-shadow: 0 10px 40px rgba(52, 152, 219, 0.15);
+    transform: translateY(-5px);
 }
 
-tbody tr {
-  transition: all 0.3s ease;
-  background-color: #f9f9f9;
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-tbody tr:hover {
-  background-color: #f0f0ff;
-  box-shadow: inset 0 0 10px rgba(102, 126, 234, 0.1);
-  transform: scale(1.01);
+/* Table Card Header */
+.table-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
+.table-card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-tbody tr:nth-child(even):hover {
-  background-color: #e8e8ff;
+.table-card-header i {
+    font-size: 1.8rem;
+    color: var(--accent);
 }
 
-.links-section {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
+.table-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-a {
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-  font-size: 0.95em;
-  cursor: pointer;
+/* Table Responsive */
+.table-responsive {
+    overflow-x: auto;
 }
 
-a:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+.table {
+    margin-bottom: 0;
+    font-size: 0.95rem;
 }
 
-a:nth-child(1):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+.table thead {
+    background: #f8f9fa;
+    border-bottom: 2px solid var(--border);
 }
 
-a:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+.table thead th {
+    padding: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border: none;
 }
 
-a:nth-child(2):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+.table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #e9ecef;
 }
 
-a:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+.table tbody tr:hover {
+    background: #f8f9fa;
+    box-shadow: inset 0 0 10px rgba(52, 152, 219, 0.08);
 }
 
-a:nth-child(3):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+.table tbody td {
+    padding: 1.2rem;
+    color: var(--text);
+    vertical-align: middle;
+    border: none;
 }
 
-/* Responsive */
+/* Data Badges */
+.data-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.data-badge:hover {
+    background: rgba(52, 152, 219, 0.2);
+    transform: scale(1.05);
+}
+
+.data-badge i {
+    font-size: 1rem;
+}
+
+/* Table Icons */
+.table td i {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Table for Mobile */
 @media (max-width: 768px) {
-  .container-main {
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 25px;
-  }
-  
-  th, td {
-    padding: 10px;
-    font-size: 0.85em;
-  }
-  
-  .links-section {
-    flex-direction: column;
-  }
-  
-  a {
-    width: 100%;
-    text-align: center;
-  }
+    .container-main {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .table-card-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .table-card-header h2 {
+        font-size: 1.2rem;
+        justify-content: center;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table thead {
+        font-size: 0.8rem;
+    }
+
+    .table thead th {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .table tbody td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .data-badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-card-header {
+        padding: 1rem;
+    }
+
+    .table-card-header h2 {
+        font-size: 1rem;
+    }
+
+    .table thead th {
+        padding: 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .table tbody td {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .data-badge {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .table-responsive table {
+        min-width: 600px;
+    }
+}
+
+/* Scrollbar Styling */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Loading Animation (Optional) */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    animation: pulse 2s infinite;
 }

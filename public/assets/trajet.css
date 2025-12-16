@@ -1,5 +1,5 @@
 /* ========================================
-   BÉNÉFICE PAR VÉHICULE STYLES
+   TRAJETS RENTABLES STYLES
    ======================================== */
 
 :root {
@@ -129,35 +129,45 @@ table tbody td {
 table tbody td:first-child {
     font-weight: 600;
     color: var(--secondary);
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
 }
 
 table tbody td:first-child::before {
-    content: '🚗';
-    font-size: 1.2rem;
+    content: '📅 ';
+    margin-right: 0.5rem;
 }
 
 table tbody td:nth-child(2) {
-    color: var(--text);
-    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
 }
 
 table tbody td:nth-child(2)::before {
-    content: '📅 ';
+    content: '📍 ';
+    margin-right: 0.5rem;
 }
 
 table tbody td:nth-child(3) {
-    font-weight: 700;
-    color: var(--success);
-    font-size: 1.05rem;
+    color: var(--secondary);
+    font-weight: 600;
 }
 
 table tbody td:nth-child(3)::before {
-    content: '€ ';
-    color: var(--accent);
-    font-weight: bold;
+    content: '🎯 ';
+    margin-right: 0.5rem;
+}
+
+table tbody td:nth-child(4) {
+    font-weight: 700;
+    color: var(--success);
+    font-size: 1.05rem;
+    background: rgba(39, 174, 96, 0.08);
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+    text-align: right;
+}
+
+table tbody td:nth-child(4)::before {
+    content: '💰 ';
 }
 
 /* Alternating Row Colors */
@@ -221,10 +231,13 @@ table tbody tr:nth-child(even):hover {
         padding: 1rem;
     }
 
-    table tbody td:first-child::before,
-    table tbody td:nth-child(2)::before,
-    table tbody td:nth-child(3)::before {
+    table tbody td::before {
         display: none;
+    }
+
+    table tbody td:nth-child(4) {
+        text-align: center;
+        padding: 1rem;
     }
 
     .container-main a {
@@ -261,6 +274,10 @@ table tbody tr:nth-child(even):hover {
     }
 
     table tbody td {
+        padding: 0.8rem 0.5rem;
+    }
+
+    table tbody td:nth-child(4) {
         padding: 0.8rem 0.5rem;
     }
 
