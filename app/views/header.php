@@ -21,9 +21,10 @@
     <nav>
       <ul>
         <li><a href="/">Accueil</a></li>
-        <a href="benefice/vehicule"> bénéfice par véhicule</a>
-         <a href="benefice/jour">bénéfice par jour</a>
-        <li><a href="trajet/rentable">trajets rentables</a></li>
+        <a href="/benefice/vehicule"> bénéfice par véhicule</a>
+         <a href="/benefice/jour">bénéfice par jour</a>
+        <li><a href="/trajet/rentable">trajets rentables</a></li>
+        <li><a href="/voitureDispo/init">Voiture dispo</a></li>
       </ul>
     </nav>
     

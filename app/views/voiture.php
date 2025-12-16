@@ -4,15 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Véhicules disponibles</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 1rem; }
-        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background: #f4f4f4; }
-        .info { margin-top: .5rem; color: #333; }
-    </style>
+    <link rel="stylesheet" href="/assets/voiture.css">
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <h1>Recherche de véhicules disponibles</h1>
 
     <form method="post" action="/voitureDispo/search">
@@ -50,5 +45,6 @@
             </tbody>
         </table>
     <?php endif; ?>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
