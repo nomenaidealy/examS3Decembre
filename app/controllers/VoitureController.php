@@ -16,13 +16,23 @@ class VoitureController {
     public function getVehiculeAvailables ($date) {
         $db = $this->app->db();
         $chaList = new VoitureModel($db);
-        $data;
-        if ($date == null) {
-            $data = $chaList->getVehicules();
-        } else {
-            $data = $chaList->getAvailableCars($date);
+
+        // Normaliser la date : trim et valider format YYYY-MM-DD
+        if ($date !== null) {
+            $date = trim($date);
+            $dt = \DateTime::createFromFormat('Y-m-d', $date);
+            if ($dt === false) {
+                $date = null;
+            } else {
+                $date = $dt->format('Y-m-d');
+            }
         }
-        return $data;
+
+        if ($date === null || $date === '') {
+            return $chaList->getVehicules();
+        }
+
+        return $chaList->getAvailableCars($date);
     }
 
 

@@ -3,6 +3,7 @@
 use app\controllers\ApiExampleController;
 use app\controllers\ChauffeurListController;
 use app\controllers\UtilsController;
+use app\controllers\VoitureController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
@@ -51,6 +52,36 @@ $router->group('', function(Router $router) use ($app) {
 		});
 	});
 
+    $router->group('/voitureDispo', function() use ($router, $app) {
+        $router->get('/init', function() use ($app) {
+            $VoitureController = new VoitureController($app);
+            $trajets = $VoitureController->getVehiculeAvailables(null);
+            $app->render('voiture', ['data' => $trajets]);
+        });
+        $router->get('/date/@date', function($date) use ($app) {
+            $VoitureController = new VoitureController($app);
+            $trajets = $VoitureController->getVehiculeAvailables($date);
+            $app->render('voiture', ['data' => $trajets]);
+        });
+
+        // POST search sans JS
+        $router->post('/search', function() use ($app) {
+            // Récupère la date depuis Flight request ou POST fallback
+            $date = null;
+            if (isset($app->request) && isset($app->request->data)) {
+                $date = $app->request->data->date ?? null;
+            }
+            if (!$date) {
+                $date = $_POST['date'] ?? null;
+            }
+
+            $VoitureController = new VoitureController($app);
+            $trajets = $VoitureController->getVehiculeAvailables($date);
+            $app->render('voiture', ['data' => $trajets, 'searchDate' => $date]);
+        });
+    });
+ // ...existing code...
+	//j4zrRKgI
 
 	$router->group('/api', function() use ($router) {
 		$router->get('/users', [ ApiExampleController::class, 'getUsers' ]);
